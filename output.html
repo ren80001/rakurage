@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style2.css') }}">
+  <title>情報の表示</title>
+</head>
+<body>
+  <h2>
+    <span class="font_test">R</span>aku<span class="font_tes">r</span>age
+  </h2>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+     body {
+         background-color: white;
+         font-family: 'Righteous', cursive;
+         text-align: center
+         }
+  </style>
+    <h1>{{ name0 }} の<br>相場は「{{ name }}円」です</h1>
+    <p>最高値は「{{ name1 }}円」</p>
+    <p>最安値は「{{ name2 }}円」</p>
+  <h3>価格毎の円グラフ</h3>
+  <p>タップで詳細を表示</p>
+  <div style="width: 100%">
+    <canvas id="pie-chart" height="300" width="450"></canvas>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+  <script>
+
+                var pieData = [
+          {
+            value: {{ price_name }},
+            color:"#9acce3",
+            highlight: "#aadbf2",
+            label: '0~9,999円台の出点数'
+          },
+          {
+            value: {{ price_name1 }},
+            color: "#70b062",
+            highlight: "#7fc170",
+            label: '~19,999円台の出点数'
+          },
+          {
+            value: {{ price_name2 }},
+            color: "#dbdf19",
+            highlight: "#ecef23",
+            label: '~29,999円台の出点数'
+          },
+          {
+            value: {{ price_name3 }},
+            color: "#a979ad",
+            highlight: "#bb8ebf",
+            label: '~39,999円台の出点数'
+          },
+          {
+            value: {{ price_name4 }},
+            color: "#cd5638",
+            highlight: "#e2694a",
+            label: '~49,999円台の出点数'
+          },
+          {
+            value: {{ price_name5 }},
+            color: "#66cdaa",
+            highlight: "#a9f9ad",
+            label: '~59,999円台の出点数'
+          },
+          {
+            value: {{ price_name6 }},
+            color: "#4c20df",
+            highlight: "#410bf4",
+            label: '~69,999円台の出点数'
+          },
+          {
+            value: {{ price_name7 }},
+            color: "#ed301e",
+            highlight: "#e84e40",
+            label: '~79,999円台の出点数'
+          },
+          {
+            value: {{ price_name8 }},
+            color: "#fcd032",
+            highlight: "#f4d45f",
+            label: '~89,999円台の出点数'
+          },
+          {
+            value: {{ price_name9 }},
+            color: "#31edd7",
+            highlight: "#67efdf",
+            label: '~99,999円台の出点数'
+          },
+          {
+            value: {{ price_name10 }},
+            color: "#ed448d",
+            highlight: "#f268a4",
+            label: '100,000円以上の出点数'
+          }
+          ];
+          window.onload = function(){
+          var ctx = document.getElementById("pie-chart").getContext("2d");
+          window.myPie = new Chart(ctx).Pie(pieData);
+          };
+  </script>
+  <p><a href="/">戻る</a></p>
+</body>
+</html>
