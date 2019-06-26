@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<title>ラクマで商品の相場をお調べいたします</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+    <h1>
+        <span class="font_test">R</span>aku<span class="font_tes">r</span>age
+    </h1>
+    
+    <p>ラクマで出品したい商品の相場を表示します。</p>
+    
+    <form method="get" action="/output">
+        <input type="text" id=a name="name" style="width:350px;" 
+        class='sample' placeholder="商品を入力後、キーの確定を押してください。">
+    </form>
+    
+    <div id="loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    Searching…now<br>
+    Please wait 20sec
+    </div>
+
+    <script>
+    $(function(){
+        $('#loader').hide();
+        $('form').on('submit', function(event) {
+            $('#loader').fadeIn();
+            $("#a").blur();
+            setTimeout(function() {
+                $('form')[0].submit();
+            }, 400);
+            event.preventDefault();
+            return false;
+        });
+    });
+    </script>
+
+    
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+    body {
+          background-color: white;
+          font-family: 'Righteous', cursive;
+          text-align: center
+          }
+    </style>
+</body>
+</html>
