@@ -22,7 +22,7 @@ https://ren80001-1.paiza-user.cloud:5000/
 
 
 ・Paizacloud
-<h1>コメント</1>
+<h1>コメント</h1>
 Pythonで学習したスクレイピングを形にしたくてWebアプリケーションにしました。
 
 
