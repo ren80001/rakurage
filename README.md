@@ -20,7 +20,7 @@ https://ren80001-1.paiza-user.cloud:5000/
 
 ・フレームワーク：Flask
 
-Paizacloud
+・Paizacloud
 <h1>コメント</h1>
 Pythonで学習したスクレイピングを形にしたくてWebアプリケーションにしました。
 
