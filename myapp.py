@@ -22,7 +22,6 @@ def output():
     bs = BeautifulSoup(top_response.text, 'html.parser')
     price_tag = bs.findAll('span',{'itemprop':'price'})
 
-
     price_date = []
     
     for price in price_tag :
@@ -41,11 +40,9 @@ def output():
             price_text2 = price.text.replace(',', '')
             price_date.append(price_text2)
         num += 1
-        
-        
+                
     price_num = [int(s) for s in price_date]    
     ave = sum(price_num) / len(price_num)
-    
     
     e = []
 
@@ -75,7 +72,6 @@ def output():
     
     price_range_box = []
 
-
     w=e.count(9999)
     price_range_box.append(w)
 
@@ -88,13 +84,11 @@ def output():
     cc=e.count(39999)
     price_range_box.append(cc)
 
-
     zz=e.count(49999)
     price_range_box.append(zz)
 
     ff=e.count(59999)
     price_range_box.append(ff)
-
 
     gg=e.count(69999)
     price_range_box.append(gg)
@@ -111,7 +105,6 @@ def output():
     pp=e.count(100000)
     price_range_box.append(pp)
 
-
     lll = price_range_box[0]
     aaa= price_range_box[1]
     bbb= price_range_box[2]
@@ -124,19 +117,13 @@ def output():
     iii= price_range_box[9]
     jjj= price_range_box[10]
     
-
-
-
-    
-    
-        
-    return render_template('output.html',name0=kw,name=round(ave),name1=max(price_num),
-    name2=min(price_num),price_name=lll,price_name1=aaa,price_name2=bbb,price_name3=ccc
-    ,price_name4=eee,price_name5=ddd,price_name6=fff,price_name7=ggg,price_name8=hhh
-    ,price_name9=iii,price_name10=jjj)
+    return render_template(
+            'output.html',name0=kw,name=round(ave),name1=max(price_num),
+            name2=min(price_num),price_name=lll,price_name1=aaa,price_name2=bbb,price_name3=ccc,
+            price_name4=eee,price_name5=ddd,price_name6=fff,price_name7=ggg,price_name8=hhh,
+            price_name9=iii,price_name10=jjj)
 
 app.run(host='0.0.0.0', debug=True)
-
 
 @app.route('/output')
 
