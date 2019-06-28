@@ -4,11 +4,9 @@ import time
 from bs4 import BeautifulSoup
 app = Flask(__name__)
 
-
 @app.route("/")
 def index():
     return render_template('index.html')
-
 
 @app.route("/output")
 def output():
